@@ -36,7 +36,7 @@ public class ConsumerController {
     /**
      * 添加前端用户
      */
-    @ApiOperation(value = "添加前端用户")
+    @ApiOperation(value = "注册、添加前端用户")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addConsumer(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
