@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.zky.music.pojo.ListSong;
 import com.zky.music.service.ListSongService;
 import com.zky.music.utils.Consts;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/listSong")
+@Api(tags = "歌曲列表")
 public class ListSongController {
 
     @Autowired
@@ -24,6 +27,7 @@ public class ListSongController {
     /**
      * 给歌单添加歌曲
      */
+    @ApiOperation(value = "给歌单添加歌曲")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addListSong(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -48,6 +52,7 @@ public class ListSongController {
     /**
      * 根据歌单id查询歌曲
      */
+    @ApiOperation(value = "根据歌单id查询歌曲")
     @RequestMapping(value = "/detail",method = RequestMethod.GET)
     public Object detail(HttpServletRequest request){
         String songListId = request.getParameter("songListId");
@@ -57,6 +62,7 @@ public class ListSongController {
     /**
      * 删除歌单里的歌曲
      */
+    @ApiOperation(value = "删除歌单里的歌曲")
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public Object delete(HttpServletRequest request){
         String songId = request.getParameter("songId").trim();                 //歌曲id

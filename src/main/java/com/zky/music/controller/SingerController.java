@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.zky.music.pojo.Singer;
 import com.zky.music.service.SingerService;
 import com.zky.music.utils.Consts;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +26,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/singer")
+@Api(tags = "歌手")
 public class SingerController {
 
     @Autowired
@@ -32,6 +35,7 @@ public class SingerController {
     /**
      * 添加歌手
      */
+    @ApiOperation(value = "添加歌手")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addSinger(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -71,6 +75,7 @@ public class SingerController {
     /**
      * 修改歌手
      */
+    @ApiOperation(value = "修改歌手")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Object updateSinger(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -111,6 +116,7 @@ public class SingerController {
     /**
      * 删除歌手
      */
+    @ApiOperation(value = "删除歌手")
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public Object deleteSinger(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -121,6 +127,7 @@ public class SingerController {
     /**
      * 根据主键查询整个对象
      */
+    @ApiOperation(value = "根据主键查询整个对象")
     @RequestMapping(value = "/selectByPrimaryKey",method = RequestMethod.GET)
     public Object selectByPrimaryKey(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -130,6 +137,7 @@ public class SingerController {
     /**
      * 查询所有歌手
      */
+    @ApiOperation(value = "查询所有歌手")
     @RequestMapping(value = "/allSinger",method = RequestMethod.GET)
     public Object allSinger(HttpServletRequest request){
         return singerService.allSinger();
@@ -138,6 +146,7 @@ public class SingerController {
     /**
      * 根据歌手名字模糊查询列表
      */
+    @ApiOperation(value = "根据歌手名字模糊查询列表")
     @RequestMapping(value = "/singerOfName",method = RequestMethod.GET)
     public Object singerOfName(HttpServletRequest request){
         String name = request.getParameter("name").trim();          //歌手名字
@@ -147,6 +156,7 @@ public class SingerController {
     /**
      * 根据性别查询
      */
+    @ApiOperation(value = "根据性别查询")
     @RequestMapping(value = "/singerOfSex",method = RequestMethod.GET)
     public Object singerOfSex(HttpServletRequest request){
         String sex = request.getParameter("sex").trim();          //性别
@@ -156,6 +166,7 @@ public class SingerController {
     /**
      * 更新歌手图片
      */
+    @ApiOperation(value = "更新歌手图片")
     @RequestMapping(value = "/updateSingerPic",method = RequestMethod.POST)
     public Object updateSingerPic(@RequestParam("file") MultipartFile avatorFile, @RequestParam("id")int id){
         JSONObject jsonObject = new JSONObject();

@@ -4,12 +4,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.zky.music.pojo.Consumer;
 import com.zky.music.service.ConsumerService;
 import com.zky.music.utils.Consts;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import springfox.documentation.service.Tags;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -24,6 +27,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/consumer")
+@Api(tags = "用户")
 public class ConsumerController {
 
     @Autowired
@@ -32,6 +36,7 @@ public class ConsumerController {
     /**
      * 添加前端用户
      */
+    @ApiOperation(value = "添加前端用户")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addConsumer(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -98,6 +103,7 @@ public class ConsumerController {
     /**
      * 修改前端用户
      */
+    @ApiOperation(value = "修改前端用户")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Object updateConsumer(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -155,6 +161,7 @@ public class ConsumerController {
     /**
      * 删除前端用户
      */
+    @ApiOperation(value = "删除前端用户")
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public Object deleteConsumer(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -165,6 +172,7 @@ public class ConsumerController {
     /**
      * 根据主键查询整个对象
      */
+    @ApiOperation(value = "根据主键查询整个对象")
     @RequestMapping(value = "/selectByPrimaryKey",method = RequestMethod.GET)
     public Object selectByPrimaryKey(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -174,6 +182,7 @@ public class ConsumerController {
     /**
      * 查询所有前端用户
      */
+    @ApiOperation(value = "查询所有前端用户")
     @RequestMapping(value = "/allConsumer",method = RequestMethod.GET)
     public Object allConsumer(HttpServletRequest request){
         return consumerService.allConsumer();
@@ -182,6 +191,7 @@ public class ConsumerController {
     /**
      * 更新前端用户图片
      */
+    @ApiOperation(value = "更新前端用户图片")
     @RequestMapping(value = "/updateConsumerPic",method = RequestMethod.POST)
     public Object updateConsumerPic(@RequestParam("file") MultipartFile avatorFile, @RequestParam("id")int id){
         JSONObject jsonObject = new JSONObject();
@@ -229,6 +239,7 @@ public class ConsumerController {
     /**
      * 前端用户登录
      */
+    @ApiOperation(value = "前端用户登录")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Object login(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();

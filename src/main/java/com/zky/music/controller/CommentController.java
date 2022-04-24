@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.zky.music.pojo.Comment;
 import com.zky.music.service.CommentService;
 import com.zky.music.utils.Consts;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 评论控制类
  */
+@Api(tags = "评论")
 @RestController
 @RequestMapping("/comment")
 public class CommentController {
@@ -24,6 +27,7 @@ public class CommentController {
     /**
      * 添加评论
      */
+    @ApiOperation(value = "添加评论")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addComment(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -57,6 +61,7 @@ public class CommentController {
     /**
      * 修改评论
      */
+    @ApiOperation(value = "修改评论")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Object updateComment(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -98,6 +103,7 @@ public class CommentController {
     /**
      * 删除评论
      */
+    @ApiOperation(value = "删除评论")
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public Object deleteComment(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -108,6 +114,7 @@ public class CommentController {
     /**
      * 根据主键查询整个对象
      */
+    @ApiOperation(value = "根据主键查询整个对象")
     @RequestMapping(value = "/selectByPrimaryKey",method = RequestMethod.GET)
     public Object selectByPrimaryKey(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -117,6 +124,7 @@ public class CommentController {
     /**
      * 查询所有评论
      */
+    @ApiOperation(value = "查询所有评论")
     @RequestMapping(value = "/allComment",method = RequestMethod.GET)
     public Object allComment(HttpServletRequest request){
         return commentService.allComment();
@@ -125,6 +133,7 @@ public class CommentController {
     /**
      * 查询某个歌曲下的所有评论
      */
+    @ApiOperation(value = "查询某个歌曲下的所有评论")
     @RequestMapping(value = "/commentOfSongId",method = RequestMethod.GET)
     public Object commentOfSongId(HttpServletRequest request){
         String songId = request.getParameter("songId");          //歌曲id
@@ -134,6 +143,7 @@ public class CommentController {
     /**
      * 查询某个歌单下的所有评论
      */
+    @ApiOperation(value = "查询某个歌单下的所有评论")
     @RequestMapping(value = "/commentOfSongListId",method = RequestMethod.GET)
     public Object commentOfSongListId(HttpServletRequest request){
         String songListId = request.getParameter("songListId");          //歌曲id
@@ -143,6 +153,7 @@ public class CommentController {
     /**
      * 给某个评论点赞
      */
+    @ApiOperation(value = "给某个评论点赞")
     @RequestMapping(value = "/like",method = RequestMethod.POST)
     public Object like(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();

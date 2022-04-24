@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.zky.music.pojo.SongList;
 import com.zky.music.service.SongListService;
 import com.zky.music.utils.Consts;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +22,7 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("/songList")
+@Api(tags = "歌单")
 public class SongListController {
 
     @Autowired
@@ -28,6 +31,7 @@ public class SongListController {
     /**
      * 添加歌单
      */
+    @ApiOperation(value = "添加歌单")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addSongList(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -56,6 +60,7 @@ public class SongListController {
     /**
      * 修改歌单
      */
+    @ApiOperation(value = "修改歌单")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Object updateSongList(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -84,6 +89,7 @@ public class SongListController {
     /**
      * 删除歌单
      */
+    @ApiOperation(value = "删除歌单")
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public Object deleteSongList(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -94,6 +100,7 @@ public class SongListController {
     /**
      * 根据主键查询整个对象
      */
+    @ApiOperation(value = "根据主键查询整个对象")
     @RequestMapping(value = "/selectByPrimaryKey",method = RequestMethod.GET)
     public Object selectByPrimaryKey(HttpServletRequest request){
         String id = request.getParameter("id").trim();          //主键
@@ -103,6 +110,7 @@ public class SongListController {
     /**
      * 查询所有歌单
      */
+    @ApiOperation(value = "查询所有歌单")
     @RequestMapping(value = "/allSongList",method = RequestMethod.GET)
     public Object allSongList(HttpServletRequest request){
         return songListService.allSongList();
@@ -111,6 +119,7 @@ public class SongListController {
     /**
      * 根据标题精确查询歌单列表
      */
+    @ApiOperation(value = "根据标题精确查询歌单列表")
     @RequestMapping(value = "/songListOfTitle",method = RequestMethod.GET)
     public Object songListOfName(HttpServletRequest request){
         String title = request.getParameter("title").trim();          //歌单标题
@@ -120,6 +129,7 @@ public class SongListController {
     /**
      * 根据标题模糊查询歌单列表
      */
+    @ApiOperation(value = "根据标题模糊查询歌单列表")
     @RequestMapping(value = "/likeTitle",method = RequestMethod.GET)
     public Object likeTitle(HttpServletRequest request){
         String title = request.getParameter("title").trim();          //歌单标题
@@ -129,6 +139,7 @@ public class SongListController {
     /**
      * 根据风格模糊查询歌单列表
      */
+    @ApiOperation(value = "根据风格模糊查询歌单列表")
     @RequestMapping(value = "/likeStyle",method = RequestMethod.GET)
     public Object likeStyle(HttpServletRequest request){
         String style = request.getParameter("style").trim();          //歌单风格
@@ -138,6 +149,7 @@ public class SongListController {
     /**
      * 更新歌单图片
      */
+    @ApiOperation(value = "更新歌单图片")
     @RequestMapping(value = "/updateSongListPic",method = RequestMethod.POST)
     public Object updateSongListPic(@RequestParam("file") MultipartFile avatorFile, @RequestParam("id")int id){
         JSONObject jsonObject = new JSONObject();

@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.zky.music.pojo.Song;
 import com.zky.music.service.SongService;
 import com.zky.music.utils.Consts;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +22,7 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("/song")
+@Api(tags = "歌曲管理")
 public class SongController {
 
     @Autowired
@@ -28,6 +31,7 @@ public class SongController {
     /**
      * 添加歌曲
      */
+    @ApiOperation(value = "添加歌曲")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public Object addSong(HttpServletRequest request, @RequestParam("file")MultipartFile mpFile){
         JSONObject jsonObject = new JSONObject();
@@ -86,6 +90,7 @@ public class SongController {
     /**
      * 根据歌手id查询歌曲
      */
+    @ApiOperation(value = "根据歌手id查询歌曲")
     @RequestMapping(value = "/singer/detail",method = RequestMethod.GET)
     public Object songOfSingerId(HttpServletRequest request){
         String singerId = request.getParameter("singerId");
@@ -95,6 +100,7 @@ public class SongController {
     /**
      * 修改歌曲
      */
+    @ApiOperation(value = "修改歌曲")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Object updateSong(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -123,6 +129,7 @@ public class SongController {
     /**
      * 删除歌曲
      */
+    @ApiOperation(value = "删除歌曲")
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public Object deleteSinger(HttpServletRequest request){
         //-TODO 先查询到数据库中对应的文件地址，删除掉它再进行下面的代码
@@ -134,6 +141,7 @@ public class SongController {
     /**
      * 更新歌曲图片
      */
+    @ApiOperation(value = "更新歌曲图片")
     @RequestMapping(value = "/updateSongPic",method = RequestMethod.POST)
     public Object updateSongPic(@RequestParam("file") MultipartFile avatorFile, @RequestParam("id")int id){
         JSONObject jsonObject = new JSONObject();
@@ -183,6 +191,7 @@ public class SongController {
     /**
      * 更新歌曲
      */
+    @ApiOperation(value = "更新歌曲")
     @RequestMapping(value = "/updateSongUrl",method = RequestMethod.POST)
     public Object updateSongUrl(@RequestParam("file") MultipartFile avatorFile, @RequestParam("id")int id){
         JSONObject jsonObject = new JSONObject();
@@ -230,6 +239,7 @@ public class SongController {
     /**
      * 根据歌曲id查询歌曲对象
      */
+    @ApiOperation(value = "根据歌曲id查询歌曲对象")
     @RequestMapping(value = "/detail",method = RequestMethod.GET)
     public Object detail(HttpServletRequest request){
         String songId = request.getParameter("songId");
@@ -239,6 +249,7 @@ public class SongController {
     /**
      * 根据歌手名字精确查询歌曲
      */
+    @ApiOperation(value = "根据歌手名字精确查询歌曲")
     @RequestMapping(value = "/songOfSongName",method = RequestMethod.GET)
     public Object songOfSongName(HttpServletRequest request){
         String songName = request.getParameter("songName");
@@ -248,6 +259,7 @@ public class SongController {
     /**
      * 根据歌手名字模糊查询歌曲
      */
+    @ApiOperation(value = "根据歌手名字模糊查询歌曲")
     @RequestMapping(value = "/likeSongOfName",method = RequestMethod.GET)
     public Object likeSongOfName(HttpServletRequest request){
         String songName = request.getParameter("songName");
@@ -257,6 +269,7 @@ public class SongController {
     /**
      * 查询所有歌曲
      */
+    @ApiOperation(value = "查询所有歌曲")
     @RequestMapping(value = "/allSong",method = RequestMethod.GET)
     public Object allSong(HttpServletRequest request){
         return songService.allSong();

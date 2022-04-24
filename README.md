@@ -10,3 +10,5 @@ maven 3.6.1
 mysql 5.7
 
 测试读写权限
+
+api文档地址：http://localhost:8888/swagger-ui.html
