@@ -23,19 +23,3 @@ public interface RankMapper {
      */
     public int selectRankNum(Integer songListId);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

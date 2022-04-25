@@ -2,7 +2,6 @@ package com.zky.music.dao;
 
 import com.zky.music.pojo.Comment;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -45,19 +44,4 @@ public interface CommentMapper {
      */
     public List<Comment> commentOfSongListId(Integer songListId);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

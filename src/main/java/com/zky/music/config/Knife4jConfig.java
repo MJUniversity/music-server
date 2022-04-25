@@ -11,6 +11,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
+/**
+ * knife4j接口文档
+ */
 @Configuration
 @EnableSwagger2WebMvc
 @EnableKnife4j

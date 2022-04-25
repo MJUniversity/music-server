@@ -2,7 +2,6 @@ package com.zky.music.dao;
 
 import com.zky.music.pojo.ListSong;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -45,19 +44,3 @@ public interface ListSongMapper {
      */
     public List<ListSong> listSongOfSongListId(Integer songListId);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,7 +3,6 @@ package com.zky.music.dao;
 import com.zky.music.pojo.Collect;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -42,19 +41,3 @@ public interface CollectMapper {
     public int existSongId(@Param("userId") Integer userId, @Param("songId") Integer songId);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

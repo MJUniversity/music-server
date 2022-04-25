@@ -5,7 +5,6 @@ import com.zky.music.pojo.Singer;
 import com.zky.music.service.SingerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**

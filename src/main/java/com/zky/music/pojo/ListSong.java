@@ -1,7 +1,6 @@
 package com.zky.music.pojo;
 
 import lombok.Data;
-
 import java.io.Serializable;
 
 /**

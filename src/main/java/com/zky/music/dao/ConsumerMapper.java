@@ -2,7 +2,6 @@ package com.zky.music.dao;
 
 import com.zky.music.pojo.Consumer;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -45,19 +44,3 @@ public interface ConsumerMapper {
      */
     public Consumer getByUsername(String username);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
