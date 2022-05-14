@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
@@ -25,9 +26,10 @@ public class Knife4jConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
                         .title("Zed音乐网站API接口文档")
-                        .description("# swagger-bootstrap-ui-demo RESTful APIs")
+                        .description("Zed音乐网站系统前后台api接口（Knife4j APIs）")
                         .termsOfServiceUrl("http://localhost:8888/swagger-ui.html")
                         .version("v2.0")
+                        .contact(new Contact("yuan","https://github.com/orgs/MJUniversity/repositories","2584278161@qq.com"))
                         .build())
                 //分组名称
                 .groupName("2.X版本")

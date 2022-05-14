@@ -6,9 +6,12 @@ import com.zky.music.utils.Consts;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -38,5 +41,14 @@ public class AdminController {
         jsonObject.put(Consts.CODE,0);
         jsonObject.put(Consts.MSG,"用户名或密码错误");
         return jsonObject;
+    }
+
+    /**
+     * 打包项目接口
+     */
+    @ApiOperation(value = "后台接口")
+    @GetMapping(value = "/manage")
+    public ModelAndView index() {
+        return new ModelAndView("/src/main/resources/static/screenIndex/index.html");
     }
 }
