@@ -16,3 +16,6 @@ mysql 5.7
 
 
 api文档地址：http://localhost:8888/doc.html
+
+
+music-client和music-manage在同一个organization下https://github.com/MJUniversity
